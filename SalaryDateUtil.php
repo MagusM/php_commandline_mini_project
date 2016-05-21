@@ -14,7 +14,7 @@ class SalaryDateUtil
      */
     public function generate($fileName=null, $year=null) {
         /* date instantiation error suppressed */
-        @$dh = new DateHandler();
+        @$dh = new DateHandler($year);
         @$csvh = new CsvHandler((is_null($fileName) ? "PaymentsReport_".(is_null($year) ? date("Y") : $year) : $fileName).$year);
 
         $filePointer = $csvh->createFile();
